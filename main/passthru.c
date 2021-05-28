@@ -65,6 +65,7 @@ void app_main(void)
     fir_filter_cfg.coeffsLeft = coeffs_30minus45;
     fir_filter_cfg.coeffsRight = coeffs_30plus45;
 */
+
     fir_filter = fir_filter_init(&fir_filter_cfg);
 
 
