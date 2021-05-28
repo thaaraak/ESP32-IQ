@@ -30,8 +30,17 @@ typedef struct fir_filter {
 
 static esp_err_t _fir_filter_destroy(audio_element_handle_t self)
 {
-    fir_filter_t *wav = (fir_filter_t *)audio_element_getdata(self);
-    audio_free(wav);
+    fir_filter_t *fir = (fir_filter_t *)audio_element_getdata(self);
+
+    audio_free( fir->delayLeft );
+    audio_free( fir->delayRight );
+
+    audio_free( fir->srcLeft );
+    audio_free( fir->srcRight );
+    audio_free( fir->destLeft );
+    audio_free( fir->destRight );
+
+    audio_free(fir);
     return ESP_OK;
 }
 static esp_err_t _fir_filter_open(audio_element_handle_t self)
