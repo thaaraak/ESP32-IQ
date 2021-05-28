@@ -56,7 +56,12 @@ void app_main(void)
     fir_filter_cfg.firLen = FIR_LEN;
     fir_filter_cfg.coeffsLeft = coeffs_minus45;
     fir_filter_cfg.coeffsRight = coeffs_plus45;
-/*
+
+    fir_filter_cfg.firLen = 250;
+    fir_filter_cfg.coeffsLeft = coeffs_250minus45;
+    fir_filter_cfg.coeffsRight = coeffs_250plus45;
+
+    /*
     fir_filter_cfg.firLen = 60;
     fir_filter_cfg.coeffsLeft = coeffs_60minus45;
     fir_filter_cfg.coeffsRight = coeffs_60plus45;
