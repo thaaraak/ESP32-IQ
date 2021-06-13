@@ -16,7 +16,7 @@
 #include "board.h"
 #include "passthru_encoder.h"
 #include "fir_filter.h"
-#include "coeffs.h""
+#include "coeffs.h"
 
 static const char *TAG = "PASSTHRU";
 
