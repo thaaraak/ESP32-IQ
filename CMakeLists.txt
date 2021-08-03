@@ -3,7 +3,6 @@
 cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-set(EXTRA_COMPONENT_DIRS "$ENV{IDF_PATH}/../esp-dsp" $ENV{ADF_PATH}/components )
-#include($ENV{ADF_PATH}/CMakeLists.txt)
+set(EXTRA_COMPONENT_DIRS "$ENV{IDF_PATH}/../esp-dsp" $ENV{IDF_PATH}/../esp-adf/components )
 
 project(passthru)

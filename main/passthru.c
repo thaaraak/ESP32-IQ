@@ -20,6 +20,7 @@
 
 static const char *TAG = "PASSTHRU";
 
+
 void app_main(void)
 {
     audio_pipeline_handle_t pipeline;
@@ -52,16 +53,17 @@ void app_main(void)
 
     ESP_LOGI(TAG, "[3.2] Create FIR Filter");
     fir_filter_cfg_t fir_filter_cfg = DEFAULT_fir_filter_CONFIG();
-
+/*
     fir_filter_cfg.firLen = FIR_LEN;
     fir_filter_cfg.coeffsLeft = coeffs_minus45;
     fir_filter_cfg.coeffsRight = coeffs_plus45;
+*/
+    fir_filter_cfg.firLen = 300;
+    fir_filter_cfg.coeffsLeft = coeffs_300minus45;
+    fir_filter_cfg.coeffsRight = coeffs_300plus45;
+/*
 
-    fir_filter_cfg.firLen = 250;
-    fir_filter_cfg.coeffsLeft = coeffs_250minus45;
-    fir_filter_cfg.coeffsRight = coeffs_250plus45;
 
-    /*
     fir_filter_cfg.firLen = 60;
     fir_filter_cfg.coeffsLeft = coeffs_60minus45;
     fir_filter_cfg.coeffsRight = coeffs_60plus45;
@@ -92,6 +94,7 @@ void app_main(void)
 
     //const char *link_tag[2] = {"i2s_read", "i2s_write"};
     //audio_pipeline_link(pipeline, &link_tag[0], 2);
+
 
     ESP_LOGI(TAG, "[ 4 ] Set up  event listener");
     audio_event_iface_cfg_t evt_cfg = AUDIO_EVENT_IFACE_DEFAULT_CFG();
