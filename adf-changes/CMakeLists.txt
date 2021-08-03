@@ -15,6 +15,15 @@ set(COMPONENT_SRCS
 )
 endif()
 
+if (CONFIG_PCBARTIST_ES8388_BOARD)
+message(STATUS "Current board name is " CONFIG_PCBARTIST_ES8388_BOARD)
+list(APPEND COMPONENT_ADD_INCLUDEDIRS ./pcbartist_es8388)
+set(COMPONENT_SRCS
+./pcbartist_es8388/board.c
+./pcbartist_es8388/board_pins_config.c
+)
+endif()
+
 if (CONFIG_ESP_LYRAT_V4_2_BOARD)
 message(STATUS "Current board name is " CONFIG_ESP_LYRAT_V4_2_BOARD)
 list(APPEND COMPONENT_ADD_INCLUDEDIRS ./lyrat_v4_2)

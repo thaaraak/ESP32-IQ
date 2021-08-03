@@ -9,6 +9,8 @@ config AUDIO_BOARD_CUSTOM
     bool "Custom audio board"
 config GENERIC_ESP32_BOARD
     bool "Generic ESP32 board"
+config PCBARTIST_ES8388_BOARD
+    bool "PCB Artists ES8388 board"
 config ESP_LYRAT_V4_3_BOARD
     bool "ESP32-Lyrat V4.3"
 config ESP_LYRAT_V4_2_BOARD
