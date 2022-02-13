@@ -41,18 +41,28 @@ void app_main(void)
     audio_pipeline_cfg_t pipeline_cfg = DEFAULT_AUDIO_PIPELINE_CONFIG();
     pipeline = audio_pipeline_init(&pipeline_cfg);
 
+    // Needed to change i2s_stream_init function in i2s_stream.c to accept a bool
+    // which tells the function whether to install the driver. Installing the driver
+    // twice for the same port now causes an error (didn't before 4.4)
+
     ESP_LOGI(TAG, "[3.1] Create i2s stream to write data to codec chip");
     i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
     i2s_cfg.type = AUDIO_STREAM_WRITER;
-    i2s_stream_writer = i2s_stream_init(&i2s_cfg);
-/*
-    ESP_LOGI(TAG, "[3.2] Create Passthru Encoder");
-    passthru_encoder_cfg_t passthru_cfg = DEFAULT_passthru_encoder_CONFIG();
-    passthru_encoder = passthru_encoder_init(&passthru_cfg);
-*/
+    i2s_cfg.i2s_port = I2S_NUM_0;
+    i2s_stream_writer = i2s_stream_init(&i2s_cfg, true);
 
-    ESP_LOGI(TAG, "[3.2] Create FIR Filter");
+    ESP_LOGI(TAG, "[3.2] Create i2s stream to read data from codec chip");
+    i2s_stream_cfg_t i2s_cfg_read = I2S_STREAM_CFG_DEFAULT();
+    i2s_cfg_read.type = AUDIO_STREAM_READER;
+    i2s_cfg_read.i2s_port = I2S_NUM_0;
+    i2s_stream_reader = i2s_stream_init(&i2s_cfg_read, false);
+
+    if ( i2s_stream_reader == NULL || i2s_stream_writer == NULL )
+    	return;
+
+    ESP_LOGI(TAG, "[3.3] Create FIR Filter");
     fir_filter_cfg_t fir_filter_cfg = DEFAULT_fir_filter_CONFIG();
+
 /*
     fir_filter_cfg.firLen = FIR_LEN;
     fir_filter_cfg.coeffsLeft = coeffs_minus45;
@@ -62,12 +72,9 @@ void app_main(void)
     fir_filter_cfg.coeffsLeft = coeffs_300minus45;
     fir_filter_cfg.coeffsRight = coeffs_300plus45;
 /*
-
-
     fir_filter_cfg.firLen = 60;
     fir_filter_cfg.coeffsLeft = coeffs_60minus45;
     fir_filter_cfg.coeffsRight = coeffs_60plus45;
-
     fir_filter_cfg.firLen = 30;
     fir_filter_cfg.coeffsLeft = coeffs_30minus45;
     fir_filter_cfg.coeffsRight = coeffs_30plus45;
@@ -75,25 +82,19 @@ void app_main(void)
 
     fir_filter = fir_filter_init(&fir_filter_cfg);
 
-
-    ESP_LOGI(TAG, "[3.3] Create i2s stream to read data from codec chip");
-    i2s_stream_cfg_t i2s_cfg_read = I2S_STREAM_CFG_DEFAULT();
-    i2s_cfg_read.type = AUDIO_STREAM_READER;
-    i2s_stream_reader = i2s_stream_init(&i2s_cfg_read);
-
-
-    ESP_LOGI(TAG, "[3.3] Register all elements to audio pipeline");
+    ESP_LOGI(TAG, "[3.4] Register all elements to audio pipeline");
     audio_pipeline_register(pipeline, i2s_stream_reader, "i2s_read");
-    audio_pipeline_register(pipeline, fir_filter, "fir");
     audio_pipeline_register(pipeline, i2s_stream_writer, "i2s_write");
+    audio_pipeline_register(pipeline, fir_filter, "fir");
 
-    ESP_LOGI(TAG, "[3.4] Link it together [codec_chip]-->i2s_stream_reader-->i2s_stream_writer-->[codec_chip]");
 
+    ESP_LOGI(TAG, "[3.5] Link it together [codec_chip]-->i2s_stream_reader-->i2s_stream_writer-->[codec_chip]");
+    /*
+    const char *link_tag[2] = {"i2s_read", "i2s_write"};
+    audio_pipeline_link(pipeline, &link_tag[0], 2);
+*/
     const char *link_tag[3] = {"i2s_read", "fir", "i2s_write"};
     audio_pipeline_link(pipeline, &link_tag[0], 3);
-
-    //const char *link_tag[2] = {"i2s_read", "i2s_write"};
-    //audio_pipeline_link(pipeline, &link_tag[0], 2);
 
 
     ESP_LOGI(TAG, "[ 4 ] Set up  event listener");
