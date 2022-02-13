@@ -43,7 +43,8 @@ void app_main(void)
 
     // Needed to change i2s_stream_init function in i2s_stream.c to accept a bool
     // which tells the function whether to install the driver. Installing the driver
-    // twice for the same port now causes an error (didn't before 4.4)
+    // twice for the same port now causes an error (didn't before 4.4). Also in 4.4
+    // dont need to call convoluted MCLK gpio function - just assign it in i2s_pins
 
     ESP_LOGI(TAG, "[3.1] Create i2s stream to write data to codec chip");
     i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
