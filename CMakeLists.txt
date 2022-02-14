@@ -5,4 +5,4 @@ cmake_minimum_required(VERSION 3.5)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 set(EXTRA_COMPONENT_DIRS "$ENV{IDF_PATH}/../esp-dsp" $ENV{IDF_PATH}/../esp-adf/components )
 
-project(passthru)
+project(ESP32-IQ)
