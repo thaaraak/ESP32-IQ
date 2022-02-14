@@ -11,6 +11,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "audio_hal.h"
 #include "audio_pipeline.h"
 #include "i2s_stream.h"
 #include "board.h"
@@ -90,13 +91,13 @@ void app_main(void)
 
 
     ESP_LOGI(TAG, "[3.5] Link it together [codec_chip]-->i2s_stream_reader-->i2s_stream_writer-->[codec_chip]");
-    /*
+
     const char *link_tag[2] = {"i2s_read", "i2s_write"};
     audio_pipeline_link(pipeline, &link_tag[0], 2);
-*/
+/*
     const char *link_tag[3] = {"i2s_read", "fir", "i2s_write"};
     audio_pipeline_link(pipeline, &link_tag[0], 3);
-
+*/
 
     ESP_LOGI(TAG, "[ 4 ] Set up  event listener");
     audio_event_iface_cfg_t evt_cfg = AUDIO_EVENT_IFACE_DEFAULT_CFG();
