@@ -67,43 +67,6 @@ esp_err_t get_spi_pins(spi_bus_config_t *spi_config, spi_device_interface_config
 
 esp_err_t i2s_mclk_gpio_select(i2s_port_t i2s_num, gpio_num_t gpio_num)
 {
-
-	// Ignore whatever is sent in and fix to Pin 3
-
-	gpio_num = GPIO_NUM_3;
-
-    if (i2s_num >= I2S_NUM_MAX) {
-        ESP_LOGE(TAG, "Does not support i2s number(%d)", i2s_num);
-        return ESP_ERR_INVALID_ARG;
-    }
-    if (gpio_num != GPIO_NUM_0 && gpio_num != GPIO_NUM_1 && gpio_num != GPIO_NUM_3) {
-        ESP_LOGE(TAG, "Only support GPIO0/GPIO1/GPIO3, gpio_num:%d", gpio_num);
-        return ESP_ERR_INVALID_ARG;
-    }
-    ESP_LOGI(TAG, "I2S%d, MCLK output by GPIO%d", i2s_num, gpio_num);
-    if (i2s_num == I2S_NUM_0) {
-        if (gpio_num == GPIO_NUM_0) {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO0_U, FUNC_GPIO0_CLK_OUT1);
-            WRITE_PERI_REG(PIN_CTRL, 0xFFF0);
-        } else if (gpio_num == GPIO_NUM_1) {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_U0TXD_U, FUNC_U0TXD_CLK_OUT3);
-            WRITE_PERI_REG(PIN_CTRL, 0xF0F0);
-        } else {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_U0RXD_U, FUNC_U0RXD_CLK_OUT2);
-            WRITE_PERI_REG(PIN_CTRL, 0xFF00);
-        }
-    } else if (i2s_num == I2S_NUM_1) {
-        if (gpio_num == GPIO_NUM_0) {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO0_U, FUNC_GPIO0_CLK_OUT1);
-            WRITE_PERI_REG(PIN_CTRL, 0xFFFF);
-        } else if (gpio_num == GPIO_NUM_1) {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_U0TXD_U, FUNC_U0TXD_CLK_OUT3);
-            WRITE_PERI_REG(PIN_CTRL, 0xF0FF);
-        } else {
-            PIN_FUNC_SELECT(PERIPHS_IO_MUX_U0RXD_U, FUNC_U0RXD_CLK_OUT2);
-            WRITE_PERI_REG(PIN_CTRL, 0xFF0F);
-        }
-    }
     return ESP_OK;
 }
 
