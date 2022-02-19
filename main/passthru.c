@@ -19,6 +19,8 @@
 #include "fir_filter.h"
 #include "coeffs.h"
 
+#include "fir_coeffs_211Taps_44100_200_9000.h"
+#include "fir_coeffs_361Taps_44100_200_9000.h"
 static const char *TAG = "PASSTHRU";
 
 
@@ -70,9 +72,9 @@ void app_main(void)
     fir_filter_cfg.coeffsLeft = coeffs_minus45;
     fir_filter_cfg.coeffsRight = coeffs_plus45;
 */
-    fir_filter_cfg.firLen = 300;
-    fir_filter_cfg.coeffsLeft = coeffs_300minus45;
-    fir_filter_cfg.coeffsRight = coeffs_300plus45;
+    fir_filter_cfg.firLen = 361;
+    fir_filter_cfg.coeffsLeft = coeffs_hilbert_361Taps_44100_200_9000;
+    fir_filter_cfg.coeffsRight = coeffs_delay_361;
 /*
     fir_filter_cfg.firLen = 60;
     fir_filter_cfg.coeffsLeft = coeffs_60minus45;
@@ -91,13 +93,13 @@ void app_main(void)
 
 
     ESP_LOGI(TAG, "[3.5] Link it together [codec_chip]-->i2s_stream_reader-->i2s_stream_writer-->[codec_chip]");
-
+/*
     const char *link_tag[2] = {"i2s_read", "i2s_write"};
     audio_pipeline_link(pipeline, &link_tag[0], 2);
-/*
+*/
     const char *link_tag[3] = {"i2s_read", "fir", "i2s_write"};
     audio_pipeline_link(pipeline, &link_tag[0], 3);
-*/
+
 
     ESP_LOGI(TAG, "[ 4 ] Set up  event listener");
     audio_event_iface_cfg_t evt_cfg = AUDIO_EVENT_IFACE_DEFAULT_CFG();
