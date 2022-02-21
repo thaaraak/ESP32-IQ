@@ -1,0 +1,23 @@
+
+I (0) cpu_start: App cpu up.
+I (219) cpu_start: Pro cpu start user code
+I (219) cpu_start: cpu freq: 160000000
+I (219) cpu_start: Application information:
+I (223) cpu_start: Project name:     ESP32-IQ
+I (228) cpu_start: App version:      96eb2c1-dirty
+I (234) cpu_start: Compile time:     Feb 21 2022 08:59:29
+I (240) cpu_start: ELF file SHA256:  09fac2d609501673...
+I (246) cpu_start: ESP-IDF:          v4.4-beta1-275-g214d62b9ad-dirt
+I (253) heap_init: Initializing. RAM available for dynamic allocation:
+I (260) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (266) heap_init: At 3FFB6A38 len 000295C8 (165 KiB): DRAM
+I (272) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (279) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (285) heap_init: At 4008B9D4 len 0001462C (81 KiB): IRAM
+I (293) spi_flash: detected chip: generic
+I (296) spi_flash: flash io: dio
+W (300) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (314) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+I (344) PASSTHRU: dsps_fir_f32_ae32 - 1482.271484 per sample for for 361 coefficients, 4.106015 per tap 
+
