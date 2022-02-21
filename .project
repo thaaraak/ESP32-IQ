@@ -74,9 +74,34 @@
 			<location>/home/xenir/esp4.4/esp-adf/components/audio_pipeline/ringbuf.c</location>
 		</link>
 		<link>
+			<name>esp_idf_components/audio_recorder/audio_recorder.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_recorder/audio_recorder.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_recorder/recorder_encoder.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_recorder/recorder_encoder.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_recorder/recorder_sr.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_recorder/recorder_sr.c</location>
+		</link>
+		<link>
 			<name>esp_idf_components/audio_sal/audio_mem.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/audio_sal/audio_mem.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_sal/audio_mutex.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_sal/audio_mutex.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_sal/audio_queue.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_sal/audio_queue.c</location>
 		</link>
 		<link>
 			<name>esp_idf_components/audio_sal/audio_sys.c</name>
@@ -92,6 +117,11 @@
 			<name>esp_idf_components/audio_sal/audio_url.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/audio_sal/audio_url.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_sal/media_os_ctype.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_sal/media_os_ctype.c</location>
 		</link>
 		<link>
 			<name>esp_idf_components/audio_stream/algorithm_stream.c</name>
@@ -582,6 +612,11 @@
 			<name>esp_idf_components/esp_peripherals/periph_is31fl3216.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/esp_peripherals/periph_is31fl3216.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp_peripherals/periph_lcd.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp_peripherals/periph_lcd.c</location>
 		</link>
 		<link>
 			<name>esp_idf_components/esp_peripherals/periph_led.c</name>
@@ -1629,9 +1664,49 @@
 			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/esp_codec/wav_encoder.c</location>
 		</link>
 		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_adapter.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_adapter.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_common.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_common.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_crypt.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_crypt.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_os.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_os.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_socket.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_socket.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/media_lib_tls.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/media_lib_tls.c</location>
+		</link>
+		<link>
 			<name>esp_idf_components/esp-sr/speech_command_recognition/mn_process_commands.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/esp-sr/speech_command_recognition/mn_process_commands.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-sr/src/mn_process_commands.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-sr/src/mn_process_commands.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-sr/src/model_path.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-sr/src/model_path.c</location>
 		</link>
 		<link>
 			<name>esp_idf_components/esp-tls/esp-tls-crypto/esp_tls_crypto.c</name>
@@ -2619,6 +2694,16 @@
 			<location>/home/xenir/esp4.4/esp-adf/components/audio_hal/driver/es7243/es7243.c</location>
 		</link>
 		<link>
+			<name>esp_idf_components/audio_hal/driver/es7243e/es7243e.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_hal/driver/es7243e/es7243e.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/audio_hal/driver/es8156/es8156.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/audio_hal/driver/es8156/es8156.c</location>
+		</link>
+		<link>
 			<name>esp_idf_components/audio_hal/driver/es8311/es8311.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/audio_hal/driver/es8311/es8311.c</location>
@@ -2829,6 +2914,26 @@
 			<location>/home/xenir/esp4.4/esp-idf/components/coap/libcoap/src/uri.c</location>
 		</link>
 		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/port/media_lib_crypt_default.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/port/media_lib_crypt_default.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/port/media_lib_os_freertos.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/port/media_lib_os_freertos.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/port/media_lib_socket_default.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/port/media_lib_socket_default.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp-adf-libs/media_lib_sal/port/media_lib_tls_default.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp-adf-libs/media_lib_sal/port/media_lib_tls_default.c</location>
+		</link>
+		<link>
 			<name>esp_idf_components/esp_http_server/src/util/ctrl_sock.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-idf/components/esp_http_server/src/util/ctrl_sock.c</location>
@@ -2952,6 +3057,11 @@
 			<name>esp_idf_components/esp_peripherals/lib/sdcard/sdcard.c</name>
 			<type>1</type>
 			<location>/home/xenir/esp4.4/esp-adf/components/esp_peripherals/lib/sdcard/sdcard.c</location>
+		</link>
+		<link>
+			<name>esp_idf_components/esp_peripherals/lib/tca9554/tca9554.c</name>
+			<type>1</type>
+			<location>/home/xenir/esp4.4/esp-adf/components/esp_peripherals/lib/tca9554/tca9554.c</location>
 		</link>
 		<link>
 			<name>esp_idf_components/esp_peripherals/lib/touch/touch.c</name>
