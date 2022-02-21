@@ -31,7 +31,6 @@ float coeffs[361];
 float delay[361];
 float delay_compare[100];
 
-
 void run_performance_test()
 {
 
