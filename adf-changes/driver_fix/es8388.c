@@ -288,7 +288,6 @@ esp_err_t es8388_init(audio_hal_codec_config_t *cfg)
     res |= es_write_reg(ES8388_ADDR, ES8388_DACPOWER, tmp);  //0x3c Enable DAC and Enable Lout/Rout/1/2
     /* adc */
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCPOWER, 0xFF);
-    //res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL1, 0xbb); // MIC Left and Right channel PGA gain
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL1, 0x11); // MIC Left and Right channel PGA gain
 
     tmp = 0;

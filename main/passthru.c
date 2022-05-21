@@ -7,6 +7,9 @@
    CONDITIONS OF ANY KIND, either express or implied.
 */
 
+#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
+
+
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -63,12 +66,12 @@ void run_performance_test()
 
 }
 
-void app_main(void)
+void app_main2(void)
 {
 	run_performance_test();
 }
 
-void app_main2(void)
+void app_main(void)
 {
     audio_pipeline_handle_t pipeline;
     audio_element_handle_t i2s_stream_writer, i2s_stream_reader, passthru_encoder, fir_filter;
